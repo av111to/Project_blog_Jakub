@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="form.css">
+	</head>
+
+	<body>
+
+<!--Headline-->       
+<div class="header">
+    <a href="Index.html"><img src="Images\Header.png" width="250px"></a>
+    <div class="header-right">
+      <a class="active" href="Index.html">Home</a>
+      <a href="#about">FAQ</a>
+    </div>
+
+</div>
+
+
+<!--post title-->  
+<h1 class="title">
+     
+    <br>Studia Podyplomowe</br>
+    <br>Avtandil's blog</br>
+    <br><img src="Images/sep1.png"></br>
+  </h1>   
+
+
+
+<!--Edit button
+<div><a href="/Project_Blog_Jakub/EditForm.html">
+    <img src="Images\Button_CreateDraft.png" width="200px;" style="margin-left: 70px;"></a></div> -->
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn" style="margin-left: 70px;">Create New Post</button>
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+            <div id="wrapper">
+                <form method="POST" action="" name="myform" >
+                        <div>
+                            <h3>Create New Post</h3>
+                        </div>
+            
+                        <div id="id_div">
+                             <label><b>ID:</b></label> 
+                             <input style="margin-left: 54px;" type="number" name="id" id="myid" class="textInput" >
+                             <b><div id="id_error" style="text-align: center;"></div></b>
+                         </div>
+            
+                         <div id="title_div">
+                                <label><b>Title:</b></label>  
+                                <input style="margin-left: 39px;" type="text" name="title" id="mytitle" class="textInput">
+                                <b><div id="title_error" style="text-align: center;"></div></b>
+                        </div>
+            
+                        <div id="content_div">
+                                <label><b>Content:</b></label> 
+                                <input style="margin-left: 11px; height: 100px;" type="email" id="mycontent" name="content" class="textInput">
+                                <b><div id="content_error" style="text-align: center;"></div></b>
+                        </div>
+            
+                        <div id="date_div">
+                                <label><b>Date:</b></label> 
+                                <input style="margin-left: 35px;" type="date" id="mydate" name="date" class="textInput">
+                             <b><div id="date_error" style="text-align: center;"></div></b>
+                        </div>
+            
+                        <div style="margin-left: 123px;">
+                            <input type="reset" onclick="return addRow()"  name="register" value="Publish">
+                            <input type="reset"  name="cancel" value="Cancel">
+                       </div>
+                </form>
+            </div>
+      </div>
+    
+    </div>
+
+
+
+
+<!-- Review publication-->
+	<div class="mytable">
+        <h3 class="title">Review Publication</h3>
+        <table id="table" name="table" border="1" align="center">
+
+<!--inserting here the search field-->
+            <tr>
+                Search Field: <select id="sfield">
+                <option selected value="Date">Newset to oldest</option>
+                <option selected value="Name">Oldest to Newest</option>
+               
+                
+                
+                </select>
+                &nbsp;
+                Search text: <input type="text" id="tbSearch" />
+                <input type="button" id="btnSearch" value="Search" onclick="return RedirectUrl();" />
+                <input type="button" id="btnClear" value="Clear" onclick="return ClearUrl();" />
+               </tr>
+            <tr>
+                <th style="width:5%;">ID</th>
+                <th style="width: 20%;">Post Title</th>
+                <th style="width: 50%;">Post Content</th>
+                <th style="width: 10%;">Published Date</th>
+                <th style="width: 15%;">Action</th>
+            </tr>
+        </table>
+    </div>  
+
+
+
+<!--Edit form.current deactivate 
+<div id="wrapper">
+    <form method="POST" action="" name="myform" >
+            <div>
+                <h3 style="margin-left: 90px;">Create New Post</h3>
+            </div>
+
+            <div id="id_div">
+                 <label><b>ID:</b></label> 
+                 <input style="margin-left: 54px;" type="number" name="id" id="myid" class="textInput" >
+                 <b><div id="id_error" style="text-align: center;"></div></b>
+             </div>
+
+             <div id="title_div">
+                    <label><b>Title:</b></label>  
+                    <input style="margin-left: 39px;" type="text" name="title" id="mytitle" class="textInput">
+                    <b><div id="title_error" style="text-align: center;"></div></b>
+            </div>
+
+            <div id="content_div">
+                    <label><b>Content:</b></label> 
+                    <input style="margin-left: 11px; height: 100px;" type="email" id="mycontent" name="content" class="textInput">
+                    <b><div id="content_error" style="text-align: center;"></div></b>
+            </div>
+
+            <div id="date_div">
+                    <label><b>Date: </b></label> 
+                    <input style="margin-left: 35px;" type="date" id="mydate" name="date" class="textInput">
+                 <b><div id="date_error" style="text-align: center;"></div></b>
+            </div>
+
+            <div style="margin-left: 123px;">
+                <input type="reset" onclick="return addRow()"  name="register" value="Publish">
+                <input type="reset"  name="cancel" value="Cancel">
+           </div>
+    </form>
+</div>
+-->
+
+<!--test to view the articles
+
+<div class="mytable">
+    <div>
+        
+<table id="employee_data">
+  <tr>
+     <th>id</th>
+     <th>title</th>
+     <th>content</th>
+   </tr>
+</table>
+</div>
+</div>
+-->
+
+<!--script for edit button pop up-->
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+
+
+
+<!--connect JS forms-->
+
+<script src="form.js"></script>
+<script src="database.json"></script>
+<script src="TestJs.js"></script>
+<script src="database.json"></script>
+<script src="main.js"></script>
+<script src="search.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquey/3.1.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstap/3.3.6/css/bootstrap.min.css"></script>
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $.getJSON("database.json", function(data){
+            var employee_data = '';
+            $.each(data, function(key,value){
+                employee_data  += '<tr>';
+                  employee_data += '<td>'+value.id+'</td>';  
+                  employee_data += '<td>'+value.title+'</td>';
+                  employee_data += '<td>'+value.content+'</td>';
+                employee_data += '</tr>';
+            });
+            $('#employee_table').append(employee_data);
+        });
+    });
+    
+    
+    </script>
